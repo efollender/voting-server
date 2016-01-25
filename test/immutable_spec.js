@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {List} from 'immutable';
+import {Map, List} from 'immutable';
 
 describe('immutability', () => {
 	describe('a number', () => {

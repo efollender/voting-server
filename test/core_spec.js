@@ -18,7 +18,7 @@ describe('application logic', () => {
 		});
 
 		it('converts to immutable', () => {
-			const state = Map();
+			const state = new Map();
 			const entries = ['Trainspotting', '28 Days Later'];
 			const nextState = setEntries(state, entries);
 			expect(nextState).to.equal(Map({
