@@ -39,11 +39,29 @@ describe('reducer', () => {
 		});
 		const action = {type: 'VOTE', entry: 'Trainspotting'};
 		const nextState = reducer(initialState, action);
-		
+
 		expect(nextState).to.equal(fromJS({
 			vote: {
 				pair: ['Trainspotting', '28 Days Later'],
 				tally: {'Trainspotting': 1}
+			},
+			entries: []
+		}));
+	});
+
+	it('does not add to the tally if the entry is invalid', () => {
+		const initialState = fromJS({
+			vote: {
+				pair: ['Trainspotting', '28 Days Later']
+			},
+			entries: []
+		});
+		const action = {type: 'VOTE', entry: 'Sunshine'};
+		const nextState = reducer(initialState, action);
+
+		expect(nextState).to.equal(fromJS({
+			vote: {
+				pair: ['Trainspotting', '28 Days Later']
 			},
 			entries: []
 		}));
